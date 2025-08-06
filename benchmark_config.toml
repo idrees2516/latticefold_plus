@@ -1,0 +1,281 @@
+# LatticeFold+ Performance Benchmarking Configuration
+# 
+# This configuration file specifies parameters for comprehensive performance
+# benchmarking as implemented in task 15.2, including baseline comparisons,
+# regression testing, scalability analysis, and optimization validation.
+
+[general]
+# Output directory for benchmark results and reports
+output_directory = "benchmark_results"
+
+# Random seed for reproducible benchmarking
+random_seed = 42
+
+# Number of benchmark iterations for statistical significance
+benchmark_iterations = 10
+
+# Measurement time per benchmark for accuracy (seconds)
+measurement_time = 30
+
+# Enable detailed logging and verbose output
+verbose_logging = false
+
+[baseline_comparison]
+# Enable comparison benchmarks against baseline implementations
+enabled = true
+
+# Baseline implementations to compare against
+baseline_implementations = [
+    "LatticeFold",
+    "HyperNova"
+]
+
+# Performance improvement targets
+target_prover_speedup = 5.0      # 5x prover speedup over LatticeFold
+target_verifier_speedup = 2.0    # 2x verifier speedup
+target_proof_size_reduction = 0.3 # 30% smaller proofs
+target_memory_reduction = 0.2    # 20% less memory usage
+
+[regression_testing]
+# Enable automated performance regression testing
+enabled = true
+
+# Performance regression threshold percentage (5% = 5.0)
+regression_threshold = 5.0
+
+# Number of historical measurements to maintain
+historical_window_size = 100
+
+# Minimum measurements required for regression detection
+minimum_measurements = 5
+
+# Statistical confidence level for regression detection
+confidence_level = 0.95
+
+# Alert severity thresholds
+[regression_testing.alert_thresholds]
+minor_threshold = 5.0      # 5-15% degradation
+moderate_threshold = 15.0  # 15-30% degradation
+major_threshold = 30.0     # 30-50% degradation
+critical_threshold = 50.0  # >50% degradation
+
+# Historical data storage configuration
+[regression_testing.storage]
+data_directory = "performance_data"
+max_data_age_days = 365
+compression_enabled = true
+backup_enabled = true
+backup_directory = "performance_data_backup"
+
+# Performance monitoring configuration
+[regression_testing.monitoring]
+continuous_monitoring_enabled = true
+monitoring_interval_seconds = 3600  # Monitor every hour
+trend_analysis_enabled = true
+forecasting_window = 20
+
+# Metrics to monitor for regression detection
+monitored_metrics = [
+    "prover_time_ms",
+    "verifier_time_ms",
+    "memory_usage_bytes",
+    "proof_size_bytes",
+    "throughput_ops_per_sec",
+    "setup_time_ms",
+    "cpu_utilization_percent",
+    "memory_bandwidth_utilization"
+]
+
+# Notification configuration for regression alerts
+[regression_testing.notifications]
+console_notifications_enabled = true
+file_notifications_enabled = true
+notification_file_path = "regression_alerts.log"
+email_enabled = false
+email_recipients = []
+slack_enabled = false
+slack_webhook_url = ""
+
+[scalability_testing]
+# Enable scalability testing with large parameter sets
+enabled = true
+
+# Ring dimensions to test for scalability analysis
+ring_dimensions = [64, 128, 256, 512, 1024, 2048, 4096, 8192]
+
+# Security parameters to test
+security_parameters = [80, 128, 192, 256]
+
+# Constraint counts for comprehensive scalability analysis
+constraint_counts = [
+    64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536
+]
+
+# Folding instance counts for multi-instance folding analysis
+folding_instance_counts = [2, 4, 8, 16, 32, 64, 128]
+
+# Norm bounds for different security/efficiency trade-offs
+norm_bounds = [64, 128, 256, 512, 1024, 2048, 4096]
+
+# Maximum parameter sizes for stress testing
+max_constraints = 65536
+max_ring_dimension = 8192
+max_folding_instances = 128
+
+# Scalability analysis configuration
+complexity_analysis_enabled = true
+bottleneck_detection_enabled = true
+performance_projection_enabled = true
+
+[memory_profiling]
+# Enable detailed memory usage profiling
+enabled = true
+
+# Memory profiling tools to use
+profiling_tools = ["built_in", "valgrind"]  # valgrind only on Linux
+
+# Memory analysis features
+allocation_tracking = true
+fragmentation_analysis = true
+leak_detection = true
+cache_analysis = true
+
+# Memory usage thresholds for alerts (in MB)
+memory_warning_threshold = 4096   # 4GB
+memory_critical_threshold = 8192  # 8GB
+
+# Memory profiling intervals
+profiling_interval_ms = 100
+snapshot_interval_ms = 1000
+
+[gpu_acceleration]
+# Enable GPU acceleration benchmarking
+enabled = true
+
+# GPU platforms to test
+gpu_platforms = ["CUDA", "OpenCL"]
+
+# GPU memory management
+gpu_memory_limit_mb = 8192  # 8GB GPU memory limit
+gpu_batch_sizes = [1, 10, 100, 1000]
+
+# GPU kernel optimization analysis
+kernel_profiling_enabled = true
+occupancy_analysis_enabled = true
+memory_coalescing_analysis = true
+
+# GPU vs CPU comparison
+cpu_gpu_comparison_enabled = true
+speedup_analysis_enabled = true
+
+[reporting]
+# Enable comprehensive report generation
+enabled = true
+
+# Report output formats
+output_formats = ["markdown", "html", "json"]
+
+# Report sections to include
+include_executive_summary = true
+include_detailed_analysis = true
+include_comparative_analysis = true
+include_optimization_recommendations = true
+include_visualizations = true
+include_code_examples = true
+
+# Analysis depth level
+analysis_depth = "comprehensive"  # basic, standard, comprehensive, expert
+
+# Report branding
+[reporting.branding]
+title = "LatticeFold+ Performance Analysis Report"
+organization = "LatticeFold+ Development Team"
+author = "Performance Analysis System"
+logo_path = ""
+
+# Color scheme for visualizations
+[reporting.branding.colors]
+primary = "#2563eb"
+secondary = "#64748b"
+success = "#16a34a"
+warning = "#d97706"
+error = "#dc2626"
+
+[hardware]
+# Hardware-specific configuration
+
+# CPU optimization settings
+cpu_affinity_enabled = false
+cpu_cores_to_use = 0  # 0 = use all available cores
+simd_optimization_enabled = true
+instruction_sets = ["AVX2", "AVX-512"]
+
+# Memory configuration
+memory_pool_enabled = true
+memory_pool_size_mb = 2048
+huge_pages_enabled = false
+
+# GPU configuration
+gpu_device_id = 0
+gpu_memory_pool_enabled = true
+gpu_memory_pool_size_mb = 4096
+
+[validation]
+# Benchmark validation and quality assurance
+
+# Statistical validation
+confidence_intervals_enabled = true
+outlier_detection_enabled = true
+normality_testing_enabled = true
+
+# Measurement quality thresholds
+minimum_sample_size = 10
+maximum_coefficient_of_variation = 0.1  # 10%
+minimum_statistical_power = 0.8
+
+# Cross-validation settings
+cross_validation_enabled = true
+validation_split_ratio = 0.2
+
+[optimization]
+# Performance optimization recommendations
+
+# Optimization categories to analyze
+analyze_algorithm_efficiency = true
+analyze_memory_usage = true
+analyze_cpu_utilization = true
+analyze_gpu_utilization = true
+analyze_cache_efficiency = true
+
+# Optimization recommendation thresholds
+cpu_utilization_threshold = 80.0      # 80% CPU utilization
+memory_utilization_threshold = 75.0   # 75% memory utilization
+cache_hit_rate_threshold = 90.0       # 90% cache hit rate
+gpu_utilization_threshold = 85.0      # 85% GPU utilization
+
+# Optimization priority weights
+algorithm_optimization_weight = 0.4
+memory_optimization_weight = 0.3
+parallelization_weight = 0.2
+hardware_optimization_weight = 0.1
+
+[ci_cd_integration]
+# Continuous integration and deployment integration
+
+# CI/CD pipeline integration
+pipeline_integration_enabled = false
+performance_gate_enabled = false
+
+# Performance gates (fail build if thresholds exceeded)
+max_regression_percentage = 10.0
+max_build_time_increase = 20.0
+max_memory_increase = 15.0
+
+# Automated reporting
+automated_reports_enabled = false
+report_upload_enabled = false
+report_upload_url = ""
+
+# Notification integration
+build_status_notifications = false
+performance_alerts_in_ci = false

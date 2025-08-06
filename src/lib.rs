@@ -1,22 +1,97 @@
 pub mod challenge_generation;
 pub mod commitment;
 pub mod commitment_sis;
+pub mod commitment_transformation;
+pub mod cyclotomic_ring;
+pub mod double_commitment;
+pub mod end_to_end_folding;
 pub mod error;
 pub mod final_proof;
+pub mod folding_challenge_generation;
 pub mod folding;
+pub mod gadget;
+pub mod gpu;
+pub mod integration_tests;
+pub mod security_integration_tests;
 pub mod lattice;
+pub mod memory;
+pub mod parameter_generation;
+pub mod modular_arithmetic;
+pub mod monomial;
+pub mod monomial_commitment;
+pub mod monomial_set_checking;
+pub mod multi_instance_folding;
+pub mod range_check_protocol;
+pub mod simd;
+pub mod sumcheck_batching;
+pub mod msis;
+pub mod norm_computation;
+pub mod ntt;
+pub mod polynomial_multiplication;
 pub mod protocol;
 pub mod quantum_resistance;
+pub mod r1cs;
+pub mod r1cs_tests;
 pub mod recursive_folding;
+pub mod ring_sumcheck;
+pub mod security_analysis;
+pub mod security;
 pub mod side_channel;
 pub mod types;
 pub mod zkp;
+pub mod integration_tests;
+
+#[cfg(test)]
+pub mod tests;
 
 pub use challenge_generation::{Challenge, ChallengeGenerator};
 pub use commitment::{
     FoldingCommitment, PedersenCommitment, PolynomialCommitment, VectorCommitment,
 };
 pub use commitment_sis::{SISCommitment, SISCommitmentWithOpening};
+pub use commitment_transformation::{
+    CommitmentTransformationProtocol, CommitmentTransformationParams, 
+    CommitmentTransformationProof, DecompositionProof, CommitmentTransformationStats
+};
+pub use folding_challenge_generation::{
+    FoldingChallengeGenerator, FoldingChallengeParams, FoldingChallenges,
+    StrongSamplingSet, FoldingChallengeStats
+};
+pub use cyclotomic_ring::{BalancedCoefficients, RingElement, MAX_RING_DIMENSION, MIN_RING_DIMENSION};
+pub use double_commitment::{DoubleCommitmentScheme, DoubleCommitmentParams};
+pub use modular_arithmetic::{BarrettParams, MontgomeryParams, ModularArithmetic};
+pub use monomial::{Monomial, MonomialSet, MonomialMembershipTester};
+pub use monomial_commitment::{MonomialVector, MonomialCommitmentScheme, CommitmentStats};
+pub use monomial_set_checking::{
+    MultilinearExtension, SumcheckProtocol, UnivariatePolynomial, SumcheckProof,
+    MonomialSetCheckingProtocol, MonomialSetCheckingProof
+};
+pub use range_check_protocol::{
+    RangeCheckProtocol, RangeCheckProof, RangeCheckStats, ConsistencyProof
+};
+pub use sumcheck_batching::{
+    BatchedSumcheckProtocol, BatchedSumcheckProof, BatchedSumcheckStats
+};
+pub use security_analysis::{
+    SecurityAnalyzer, SecurityAnalysisResults, LinearCommitmentSecurity, KnowledgeErrorAnalysis,
+    ExtractorAnalysis, BindingVerification, NormBoundAnalysis, ParameterAdequacy,
+    MaliciousProverResistance, OverallSecurityAssessment, AnalysisStatistics
+};
+pub use multi_instance_folding::{
+    LinearRelation, MultiInstanceLinearRelation, LinearFoldingParams, LinearFoldingProof,
+    LinearFoldingStats, LinearFoldingProtocol
+};
+pub use end_to_end_folding::{
+    EndToEndFoldingSystem, EndToEndFoldingParams, EndToEndFoldingProof, EndToEndFoldingStats,
+    R1CSInstance, LinearizationProof, TimingBreakdown, CommunicationBreakdown
+};
+pub use gadget::{GadgetVector, GadgetMatrix, GadgetParams, DecompositionCache, LookupTables, StreamingDecomposer, GadgetVerificationReport, VerificationSummary, TimingStats};
+pub use msis::{MSISParams, MSISMatrix, OptimizationTarget, SecurityEstimate, MemoryRequirements, MatrixValidation};
+pub use norm_computation::{InfinityNorm, EuclideanNorm, OperatorNorm};
+pub use ntt::{NTTParams, NTTEngine, NTTMultiplier, get_ntt_params, clear_ntt_params_cache};
+pub use polynomial_multiplication::{
+    schoolbook_multiply_optimized, karatsuba_multiply_optimized, multiply_with_algorithm_selection
+};
 pub use error::{LatticeFoldError, Result};
 pub use final_proof::{FinalProof, FinalProver, FinalVerifier};
 pub use folding::{FoldingProof, FoldingScheme};
@@ -27,11 +102,23 @@ pub use protocol::{
 pub use quantum_resistance::{
     QuantumResistanceAnalyzer, QuantumResistanceParams, QuantumResistantSampler, SecurityLevel,
 };
+pub use parameter_generation::{
+    AutomatedParameterGenerator, GeneratedParameters, TargetSecurityLevel, PerformanceMetrics,
+    ProofSizeEstimates, ValidationStatus, AttackComplexityEstimator, PerformanceProfiler,
+    ParameterOptimizer, GeneratorConfig
+};
 pub use recursive_folding::{
     RecursiveFoldingScheme, RecursiveProof, RecursiveRelation, RecursiveWitness,
 };
 pub use side_channel::{
     ConstantTimeGaussianSampler, ConstantTimeLatticePoint, ConstantTimeVerifier,
+};
+pub use ring_sumcheck::{
+    MultilinearExtension, MultilinearExtensionStats, TensorProduct, TensorProductStats
+};
+pub use r1cs::{
+    R1CSMatrices, CommittedR1CS, AuxiliaryMatrices, CommittedR1CSStats, CCSMatrices, 
+    CommittedCCS, CCSStats, ConstraintSystem, ConstraintDegree
 };
 pub use types::{CommitmentParams, FinalProof, LatticeFoldInstance, LatticeFoldParams};
 pub use zkp::{FoldingProof as ZKFoldingProof, ZKProof, ZKProver, ZKVerifier};
