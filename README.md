@@ -163,15 +163,6 @@ For 128-bit security:
 - Security parameter: κ = 128
 - Norm bounds optimized for concrete security
 
-## 📊 Benchmarks
-
-Performance benchmarks on modern hardware:
-
-| Operation | Time (ms) | Memory (MB) | Improvement vs LatticeFold |
-|-----------|-----------|-------------|---------------------------|
-| Range Proof Generation | 45.2 | 128 | 5.1x faster |
-| Folding (L=8 to 2) | 23.7 | 64 | 4.8x faster |
-| Verification | 8.9 | 32 | 3.2x faster |
 
 Run benchmarks with:
 ```bash
