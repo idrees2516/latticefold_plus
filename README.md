@@ -1,4 +1,8 @@
+WARNING ! THIS IS ONLY FOR LEARNING PURPOSES AND DONT USE IT IN PRODUCTION
+
 # LatticeFold+: Faster, Simpler, Shorter Lattice-Based Folding
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/idrees2516/latticefold_plus)
 
 A comprehensive Rust implementation of LatticeFold+, a lattice-based folding scheme for succinct proof systems based on the paper "LatticeFold+: Faster, Simpler, Shorter Lattice-Based Folding for Succinct Proof Systems" by Dan Boneh and Binyi Chen (2025).
 
