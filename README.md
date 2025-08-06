@@ -1,8 +1,27 @@
-WARNING ! THIS IS ONLY FOR LEARNING PURPOSES AND DONT USE IT IN PRODUCTION
-
 # LatticeFold+: Faster, Simpler, Shorter Lattice-Based Folding
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/idrees2516/latticefold_plus)
+
+> ## ⚠️ **IMPORTANT DISCLAIMER - EDUCATIONAL USE ONLY** ⚠️
+> 
+> **🚨 THIS IMPLEMENTATION IS FOR LEARNING AND RESEARCH PURPOSES ONLY 🚨**
+> 
+> **DO NOT USE IN PRODUCTION SYSTEMS**
+> 
+> This is an educational implementation of the LatticeFold+ paper to demonstrate the concepts and algorithms. While we've implemented security best practices and comprehensive testing, this code:
+> 
+> - Has not undergone professional security audits
+> - May contain implementation vulnerabilities
+> - Is not optimized for production environments
+> - Should not be used for any security-critical applications
+> 
+> **For production use, please:**
+> - Conduct thorough security audits
+> - Perform extensive testing in your specific environment
+> - Consider using established, audited cryptographic libraries
+> - Consult with cryptography experts
+> 
+> **Use this code to learn, experiment, and understand LatticeFold+ concepts only.**
 
 A comprehensive Rust implementation of LatticeFold+, a lattice-based folding scheme for succinct proof systems based on the paper "LatticeFold+: Faster, Simpler, Shorter Lattice-Based Folding for Succinct Proof Systems" by Dan Boneh and Binyi Chen (2025).
 
@@ -211,11 +230,6 @@ If you use this implementation in your research, please cite:
 - [Lattice-Based Cryptography Survey](https://eprint.iacr.org/2015/939)
 - [Post-Quantum Cryptography Standards](https://csrc.nist.gov/projects/post-quantum-cryptography)
 
-## 📞 Contact
-
-- **Author**: Idrees Ahmad
-- **Email**: [your-email@example.com]
-- **GitHub**: [@idrees2516](https://github.com/idrees2516)
 
 ## 🙏 Acknowledgments
 
@@ -225,4 +239,27 @@ If you use this implementation in your research, please cite:
 
 ---
 
-**⚠️ Security Notice**: This is a research implementation. While we've implemented security best practices, please conduct your own security review before using in production systems.
+## ⚠️ **FINAL SECURITY REMINDER** ⚠️
+
+**🔴 THIS IS AN EDUCATIONAL IMPLEMENTATION ONLY 🔴**
+
+This LatticeFold+ implementation is designed for:
+- ✅ Learning lattice-based cryptography concepts
+- ✅ Understanding the LatticeFold+ paper
+- ✅ Academic research and experimentation
+- ✅ Cryptographic algorithm development
+
+**❌ NOT suitable for:**
+- Production systems
+- Security-critical applications
+- Financial or sensitive data processing
+- Any real-world cryptographic deployment
+
+**Before any production consideration:**
+1. Professional security audit required
+2. Extensive penetration testing needed
+3. Code review by cryptography experts
+4. Compliance with relevant security standards
+5. Consider using established, audited libraries instead
+
+**Use responsibly and only for educational purposes!**
